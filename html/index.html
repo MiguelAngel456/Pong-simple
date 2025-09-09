@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi Primera Página Web</title>
+  <style>
+    body, html{
+      height: 90%;
+      background: #000;
+    }
+    #ball
+    {
+      width: 20px;
+      height: 20px;
+      background: #000;
+      position:absolute;
+      left:50%;
+      top:50%;
+      border: 2px solid #fff;
+      border-radius: 30px;
+
+    }
+    #bar1
+    {
+      width: 30px;
+      height: 90px;
+      background: #000;
+      position:absolute;
+      left:25%;
+      top:50%;
+      border: 2px solid #fff;
+    }
+    #bar2
+    {
+      width: 30px;
+      height: 90px;
+      background: #000;
+      position:absolute;
+      right:25%;
+      top:50%;
+      border: 2px solid #fff;
+    }
+    #line{
+      width: 99%;          
+      height: 5px;
+      border-top: #fff dashed 5px;
+      position: absolute;    
+      top: 20%; 
+    }
+    #line2{
+      width: 99%;          
+      height: 5px;
+      border-top: #fff dashed 5px;
+      position: absolute;    
+      top: 80%; 
+    }
+    #point1{
+      width: 100px;
+      height: 100px;
+      font-size: 100px; 
+      background: transparent;
+      color:#fff;
+      position:absolute;
+      left:25%;
+      top:90px;
+    }
+    #point2{
+      width: 100px;
+      height: 100px;
+      font-size: 100px; 
+      background: transparent;
+      color:#fff;
+      position:absolute;
+      left:75%;
+      top:90px;
+    }
+  </style>
+</head>
+<body>
+  <div id="point1">0</div>
+  <div id="point2">0</div>
+  <div id="ball"></div>
+  <div id="bar1"></div>
+  <div id="bar2"></div>
+  <div id="line"></div>
+  <div id="line2"></div>
+  <script src="../pong.js"></script>
+</body>
+</html>
