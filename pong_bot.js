@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pong.js                                            :+:      :+:    :+:   */
+/*   pong_bot.js                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfuente- <mfuente-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 16:07:34 by mfuente-          #+#    #+#             */
-/*   Updated: 2025/10/02 16:31:23 by mfuente-         ###   ########.fr       */
+/*   Updated: 2025/10/02 18:06:42 by mfuente-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ const point2= document.getElementById('point2');
 
 //Posible funcion para iniciar los siguientes parametros
 let player1 = new Object();
-let player2 = new Object();
 player1.keyPress = false;
 player1.keyCode = null;
 /*****VARIABLES*****/
@@ -43,11 +42,6 @@ document.addEventListener("keydown", function(event) {
             player1.keyPress = true;
             player1.keyCode = event.key;
             break;
-        case "ArrowUp":
-        case "ArrowDown":
-            player2.keyPress = true;
-            player2.keyCode = event.key;
-            break;  
     }
 });
 
@@ -55,10 +49,6 @@ document.addEventListener("keyup", function(event) {
     if(event.key == "w" || event.key == "s") {
         player1.keyPress = false;
         player1.keyCode = null;
-    }
-    if(event.key == "ArrowUp" || event.key == "ArrowDown") {
-        player2.keyPress = false;
-        player2.keyCode = null;
     }
 });
 
@@ -95,24 +85,21 @@ function moveBar()
             bar1.style.top = (y1) + "px";
         }
     }
-    console.log("*****"+bar2.style.top);
-    //console.log("------"+ball.style.top);
-    if(player2.keyPress== true)
+    //PARA PODER JUGAR SOLO
+    if (bar2.offsetTop > ball.offsetTop)
     {
-        
-        if(player2.keyCode == "ArrowUp")
-        {
-            if((y2 - mov) > height)
-                y2 = y2 - mov;
-            bar2.style.top = y2 + "px";
-        }
-        if(player2.keyCode == "ArrowDown")
-        {
-            if((y2 - mov) < ((line2.offsetTop - bar1.offsetHeight) - line2.offsetHeight - 10 ))
-                y2 = y2 + mov;
-            bar2.style.top = y2 + "px";
-        }
+        if((y2 - mov) > height)
+            y2 = y2 - mov;
+        bar2.style.top = y2 + "px"; 
     }
+    if (bar2.offsetTop < ball.offsetTop)
+    {
+        if((y2 - mov) < ((line2.offsetTop - bar1.offsetHeight) - line2.offsetHeight - 10 ))
+            y2 = y2 + mov;
+        bar2.style.top = y2 + "px"; 
+    }
+
+    
 }
 function hitBarLeft()
 {
