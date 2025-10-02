@@ -112,25 +112,29 @@ function moveBar()
         }
     }
 }
-function hitBar1()
+function hitBarLeft()
 {
     //Que este en la misma distancia
     //Que este por encima del limite inferior de la barra
     //Que este por debajo del limite superior de la barra
+	//Que este moviendose hacia la barra
     if(ball.offsetLeft <= (bar1.offsetLeft + bar1.offsetWidth) &&
     ball.offsetTop >= bar1.offsetTop + 5 &&
-    ball.offsetTop <= (bar1.offsetTop + bar1.clientHeight))
+    ball.offsetTop <= (bar1.offsetTop + bar1.clientHeight) &&
+	Math.cos(angle) < 0)
         return true;
     return false;
 }
-function hitBar2()
+
+function hitBarRight()
 {
     //Que este en la misma distancia
     //Que este por encima del limite inferior de la barra
     //Que este por debajo del limite superior de la barra
     if(ball.offsetLeft >= (bar2.offsetLeft - bar2.offsetWidth) &&
     ball.offsetTop >= bar2.offsetTop + 5 &&
-    ball.offsetTop <= (bar2.offsetTop + bar2.clientHeight))
+    ball.offsetTop <= (bar2.offsetTop + bar2.clientHeight) &&
+	Math.cos(angle) > 0)
         return true;
     return false;
 }
@@ -138,7 +142,7 @@ function hitBar2()
 // Comprueba el estado de la bola
 function checkStateBall(){
     //POR SI CHOCA CON UNA DE LAS BARRAS
-    if(hitBar2() || hitBar1())
+    if(hitBarRight() || hitBarLeft())
         bounceBallHorizontal();
 
     //POR SI CHOCA CON EL TECHO O SUELO
