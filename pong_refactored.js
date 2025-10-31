@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pong.js                                            :+:      :+:    :+:   */
+/*   pong_refactored.js                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfuente- <mfuente-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 16:07:34 by mfuente-          #+#    #+#             */
-/*   Updated: 2025/08/21 16:38:32 by mfuente-         ###   ########.fr       */
+/*   Updated: 2025/10/31 15:56:55 by mfuente-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,7 +146,7 @@ function hitBarLeft()
     //Que este por debajo del limite superior de la barra
 	//Que este moviendose hacia la barra
     if(ball.offsetLeft <= (bar_left.offsetLeft + bar_left.offsetWidth) &&
-    ball.offsetTop >= bar_left.offsetTop + 5 &&
+    (ball.offsetTop + ball.offsetWidth) >= bar_left.offsetTop + 5 &&
     ball.offsetTop <= (bar_left.offsetTop + bar_left.clientHeight) &&
 	Math.cos(angle) < 0)
         return true;
@@ -161,7 +161,7 @@ function hitBarRight()
     //Que este por debajo del limite superior de la barra
 	//Que este moviendose hacia la barra
     if(ball.offsetLeft >= (bar_right.offsetLeft - bar_right.offsetWidth) &&
-    ball.offsetTop >= bar_right.offsetTop + 5 &&
+    (ball.offsetTop + ball.offsetWidth) >= bar_right.offsetTop + 5 &&
     ball.offsetTop <= (bar_right.offsetTop + bar_right.clientHeight) &&
 	Math.cos(angle) > 0)
         return true;
@@ -176,7 +176,7 @@ function checkStateBall(){
         bounceBallVertical();
 
     // Check floor/ceiling collision
-    if(ball.offsetTop <= line_ceiling.offsetTop || ball.offsetTop >=line_floor.offsetTop )
+    if(ball.offsetTop <= line_ceiling.offsetTop || ball.offsetTop + ball.offsetHeight >=line_floor.offsetTop )
         bounceBallHorizontal();
 
     // Check scoring
