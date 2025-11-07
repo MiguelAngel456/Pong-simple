@@ -14,12 +14,12 @@ fastify.register(require('@fastify/static'), {
 
 // Opcional: Redirigir '/' a 'index.html'
 fastify.get('/', function (request, reply) {
-  reply.sendFile('html/index.html')
+  reply.sendFile('html/menu.html')
 })
 
 
 // Run the server!
-fastify.listen({ port: 3002 }, function (err, address) {
+fastify.listen({ port: 3004 }, function (err, address) {
   if (err) {
     fastify.log.error(err)
     process.exit(1)
