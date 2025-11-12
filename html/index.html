@@ -62,7 +62,7 @@
       color:#fff;
       position:absolute;
       left:25%;
-      top:90px;
+      top:50px;
     }
     #point2{
       width: 100px;
@@ -72,7 +72,7 @@
       color:#fff;
       position:absolute;
       left:75%;
-      top:90px;
+      top:50px;
     }
   </style>
 </head>
@@ -84,6 +84,12 @@
   <div id="bar2"></div>
   <div id="line"></div>
   <div id="line2"></div>
-  <script src="../pong_refactored.js"></script>
+  <script>
+    //Saco mode de la URL si no tiene se le pone de manera default 1v1
+    const mode = new URLSearchParams(location.search).get('mode') || '1v1';
+    const script = document.createElement('script');
+    script.src = (mode === 'ai') ? '../pong_refactored_bot.js' : '../pong_refactored.js';
+    document.body.appendChild(script);
+  </script>
 </body>
 </html>
