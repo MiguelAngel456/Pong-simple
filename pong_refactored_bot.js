@@ -6,7 +6,7 @@
 /*   By: mfuente- <mfuente-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 16:07:34 by mfuente-          #+#    #+#             */
-/*   Updated: 2025/11/12 15:08:43 by mfuente-         ###   ########.fr       */
+/*   Updated: 2025/11/12 17:32:55 by mfuente-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,10 +152,10 @@ function moveBar(Player1Input, Player2Input) {
     }
     if (bar_right.offsetTop < ball.offsetTop)
     {
-        if((paddle_right_position + paddle_speed) < ((line_floor.offsetTop - bar_right.offsetHeight)))
+        if((paddle_right_position + paddle_speed) < (line_floor.offsetTop - bar_right.offsetHeight))
             paddle_right_position = paddle_right_position + paddle_speed;
 		else
-			paddle_right_position = line_ceiling.offsetTop;
+			paddle_right_position = line_floor.offsetTop - bar_left.offsetHeight;
         bar_right.style.top = paddle_right_position + "px"; 
     }
 
